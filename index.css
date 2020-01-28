@@ -230,3 +230,13 @@
     border: var(--border);
     box-shadow: var(--box-shadow);
 }
+
+.one {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+
+.two {
+    background-color: rebeccapurple;
+}
