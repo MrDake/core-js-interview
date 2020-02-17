@@ -26,22 +26,22 @@
 //                 -> Compiler -> Optimized Code
 
 
-console.log(typeof name, name);
-var name;
-function name() {}
-console.log(typeof name, name);
-name = 'Alex';
-console.log(typeof name, name);
-var name = 'Frim';
-console.log(typeof name, name); // можно переобъявить, не будет ошибки
+console.log(typeof myName, myName);
+var myName;
+function myName() {}
+console.log(typeof myName, myName);
+myName = 'Alex';
+console.log(typeof myName, myName);
+var myName = 'Frim';
+console.log(typeof myName, myName); // можно переобъявить, не будет ошибки
 
 console.log('-------------------')
 
-// console.log(typeof name);
-// function name() {}
-// console.log(typeof name);
-// var name = 'Alex';
-// console.log(typeof name);
+// console.log(typeof myName);
+// function myName() {}
+// console.log(typeof myName);
+// var myName = 'Alex';
+// console.log(typeof myName);
 
 console.log('-------------------')
 
@@ -56,3 +56,23 @@ console.log(typeof es6_name, es6_name); // string
 // function es6_name() {} // SyntaxError: Identifier 'es6_name' has already been declared
 // нельза переобъявить
 
+
+// (но это не точно!!!!) изходя из этго примера видно, что во время парсинга кода
+// bbb с кинтаксической ошибкой
+// что процесс инициализации для const не завершен
+// такой же примел для лет не вызывает синтакической ошибки т.к.
+// переменной присвается undefined
+function scope() {
+    function oneMore() {
+         function some() {
+             if (false) {
+                 const bbb;
+                 bbb = 10
+                 console.log(`-${bbb}-`); // SyntaxError: Missing initializer in const declaration
+             }
+         }
+         // some()
+    }
+ //    oneMore()
+ }
+ scope();

@@ -31,7 +31,7 @@
 
 // Обычно функции конструкторы не имею return и неявно возвращают this
 // Но можно из функции-конструктора вернуть объект в котором указать что-либо
-// в противном случае, если мы будет возвращать не объект, а что-то другое,
+// в противном случае, если мы будем возвращать не объект, а что-то другое,
 // в том числе undefined, то вернется объект this
 
 function ClassConstructor(name) {
@@ -75,6 +75,7 @@ ClassConstructor.prototype = Object.assign(ClassConstructor.prototype, inheritMe
 iam.printFullname();
 
 console.log('-------------------------------------')
+console.log('inheritance')
 
 function MyNumber(number) {
     this.number = number;
