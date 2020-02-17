@@ -5,6 +5,7 @@
 // 1. Не имеет своего this и берет его из окружения 
 // 2. Не имеет колекции arguments 
 //      (итерируемого объекта не имеющего методов массива)
+// 3. Не имеет прототипа arrowFunction.prototype
 
 function func() {
     console.log(arguments);
@@ -15,8 +16,11 @@ const arrowFunction = (...args) => {
     console.log(args);
 }
 arrowFunction(1,'2',true);
+console.log(arrowFunction.prototype === undefined)
 
 const arrowFunc = () => {
     console.log(arguments);
 }
 arrowFunc(1,'2',true);
+
+console.log(arrowFunction.prototype === undefined)
