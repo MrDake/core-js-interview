@@ -26,6 +26,9 @@
 
 // ----------------------------------------------
 
+// #18 #45 #51 #56 #97
+// 0% (5 failed from 116)
+
 
 
 function getPersenOfRightQuestions(
@@ -65,23 +68,30 @@ function getPersenOfRightQuestions(
 
 getPersenOfRightQuestions
 (116, [
-    1, 8, 11, 13, 17,
-    22, 23, 25, 29, 31,
-    38, 49, 53, 54, 57,
-    61, 65, 67, 69, 72,
-    73, 74, 83, 92, 94,
-    95, 96, 98, 102, 111,
-    114
-])
-(31, [
-    11, 57, 65, 98
-])
-(
+        1, 8, 11, 13, 17,
+        22, 23, 25, 29, 31,
+        38, 49, 53, 54, 57,
+        61, 65, 67, 69, 72,
+        73, 74, 83, 92, 94,
+        95, 96, 98, 102, 111,
+        114
+    ]
+)(
+    31, 
+    [
+        11, 57, 65, 98
+    ]
+)(
     116,
     [
         5, 8, 11, 18,
         24, 29, 84, 89, 92,
         95, 98, 106, 11, 114,
+    ]
+)(
+    166,
+    [
+       18, 45, 51, 56, 97
     ]
 )
 
@@ -103,3 +113,15 @@ getPersenOfRightQuestions
 // index.js:50 Question -#95- failed -2- times
 // index.js:50 Question -#98- failed -3- times !!!
 // index.js:50 Question -#114- failed -2- times
+
+// 96% (5 failed from 166)
+// Question -#8- failed -2- times
+// Question -#11- failed -4- times
+// Question -#18- failed -2- times
+// Question -#29- failed -2- times
+// Question -#57- failed -2- times
+// Question -#65- failed -2- times
+// Question -#92- failed -2- times
+// Question -#95- failed -2- times
+// Question -#98- failed -3- times
+// Question -#114- failed -2- times
