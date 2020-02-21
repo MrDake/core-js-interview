@@ -14,8 +14,11 @@
 //      4. Возвращается значение this 
 //          (но может вернуть объект который ты явно укажешь)
 //      5. Функция наследует от functionName.prototype.
+//          Другими словами
+//          Производится связывание сконструированного объекта
+//          с [[Prototype]].
 
-// ??? стоит ли говорить пункт 5 / кажется что стоит
+// ??? стоит ли говорить пункт 5 / кажется что стоит / точно стоит проверил!
 
 //      function User(name) {
 //          // this = {};  (неявно)
@@ -76,26 +79,29 @@ iam.printFullname();
 
 console.log('-------------------------------------')
 console.log('inheritance')
-
-function MyNumber(number) {
-    this.number = number;
-
-    this.readNumber = function() {
-        console.log(this.number);
-        console.log(this);
-    }
+function Perent(name) {
+    this.name = name;
+    this.wisdom = 'classes is good';
 }
 
-function MyString(string, ...arg) {
-    MyNumber.apply(this, arg);
-
-    this.string = string;
-}
-MyString.prototype.readString = function() {
-    console.log(this.string);
-    console.log(this);
+Perent.prototype.sayWisdom = function() {
+    console.log( `${this.name} say that ${this.wisdom}...` );
 }
 
-const myString = new MyString('Alex', 12);
-myString.readString();
-myString.readNumber();
+const perent = new Perent('oldMan');
+perent.sayWisdom();
+
+function Child(name) {
+    Perent.call(this, name);
+    this.blabla = 'your classes is shit';
+}
+
+Child.prototype = Object.create(Perent.prototype);
+Child.prototype.sayBlabla = function() {
+    console.log(`${this.name} say that ${this.blabla}!`);
+}
+
+const child = new Child('youngBoy');
+child.sayBlabla();
+child.sayWisdom();
+console.log(child);

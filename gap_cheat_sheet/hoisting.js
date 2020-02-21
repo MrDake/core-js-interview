@@ -76,3 +76,8 @@ function scope() {
  //    oneMore()
  }
  scope();
+
+// !!! СМОТРИ ФАЙЛЫ
+// scope.js 
+// initialisationjs
+// compiling.js

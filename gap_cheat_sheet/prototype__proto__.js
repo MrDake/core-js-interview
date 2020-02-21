@@ -18,6 +18,13 @@
 // саму функцию-конструктора
 
 
+// с. 255 Кайн Симпсон "you don't know JS"
+// Наследование подразумевает операцию копирования, а JavaScript
+// не копирует свойства объектов (по умолчанию). Вместо этого JS
+// создает связь между двумя объектами, благодаря которой один
+// объект может делегировать обращения к свойствам/функциям
+// другому объекту. Термин «делегирование» (см. главу 11) гораздо
+
 function Some(magic) {
     this.magic = magic;
 }
@@ -76,3 +83,9 @@ console.log(typeof Array); // function
 console.log(Array.constructor === Function); // true
 console.log(Array.prototype.__proto__ === Object.prototype); // true
 console.log(Array.__proto__ === Function.prototype); // true
+
+// Вопрос, на который отвечает isPrototypeOf(..), вы-
+// глядит так: встречается ли во всей цепочке [[Prototype]] объекта
+// a объект Foo.prototype ?
+
+// Object.getPrototypeOf(obj) === FunctionName.prototype; // true
