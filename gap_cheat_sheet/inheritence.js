@@ -52,7 +52,7 @@ console.log(child);
 //     blabla: setUp('your classes is shit'),
 //     sayBlabla: setUp(function() {
 //             console.log(`${this.name} say that ${this.blabla}!`);
-//         })
+//     })
 // });
 
 // Perent.init('oldMan');
