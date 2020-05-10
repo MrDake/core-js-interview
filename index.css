@@ -1,0 +1,242 @@
+:root {
+    --color-root: bisque;
+    --color-one: cadetblue;
+    --color-two: olivedrab;
+    --box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    --margin: 100px;
+    --margin-min: 2px;
+    --padding: 2px;
+    --border-size: 1px;
+    --border: var(--border-size) groove black;
+    --player: rgb(32, 13, 10, 0.9);
+    --width-playground: 100px;
+    --hight-playground: 100px;
+    --width-player: calc(var(--width-playground) / 10);
+    --hight-player: calc(var(--hight-playground) / 4);
+    --width-ball-field: calc(
+                        var(--width-playground) - 
+                        var(--margin-min) * 2 - 
+                        var(--width-player) * 2 -
+                        var(--border-size) * 2
+                        );
+    --hight-ball-field: calc(var(--hight-playground) - var(--margin-min) * 2 - var(--border-size) * 2);
+    --size-ball: calc(var(--width-player) * 1.5);
+    --ball-Y-top: calc(var(--hight-player) / 2 - var(--size-ball) / 2);
+    --ball-Y-mid: calc(var(--hight-ball-field) / 2 - var(--size-ball) / 2);
+    --ball-Y-bot: calc(var(--hight-ball-field) - var(--hight-player) / 2 - var(--size-ball) / 2);
+    --ball-X-left: 0px;
+    --ball-X-right: calc(var(--width-ball-field) - var(--size-ball));
+    --player-Y-top: 0px;
+    --player-Y-mid: calc(var(--hight-ball-field) / 2 - var(--hight-player) / 2);
+    --player-Y-bot: calc(var(--hight-ball-field) - var(--hight-player));
+    --animation-time: 5s;
+}
+
+.root {
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    background-color: var(--color-root);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.margin {
+    margin: var(--margin);
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: var(--color-one);
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    text-shadow: 1px 3px 3px rgba(0,0,0,0.2);
+    transition: 0.3s cubic-bezier(.38,-0.25,1,.07);
+}
+
+.box:hover {
+    transform: rotate(-360deg);
+    border-radius: 50px;
+}
+
+/* ---------------------------------------------------------------------------------- */
+
+.playground {
+    display: flex;
+    width: var(--width-playground);
+    height: var(--hight-playground);
+    background-color: var(--color-root);
+    border: var(--border);
+    padding: var(--margin-min);
+}
+
+.player {
+    width: var(--width-player);
+    height: var(--hight-player);
+    margin: 0px;
+    background-color: var(--player);
+    border: var(--border);
+}
+
+.ball-field {
+    width: var(--width-ball-field);
+    height: var(--hight-ball-field);
+}
+
+.ball {
+    width: var(--size-ball);
+    height: var(--size-ball);
+    border-radius: calc(var(--size-ball)/2);
+    border: var(--border);
+    background-color: var(--player);
+    transform: translateY(var(--ball-Y-top));
+    animation: ball-move var(--animation-time) linear infinite;
+}
+
+.left-player {
+    transform: translateY(0px);
+    animation: left-player var(--animation-time) linear infinite;
+}
+
+.right-player {
+    transform: translateY(0px);
+    animation: right-player var(--animation-time) linear infinite;
+}
+
+@keyframes ball-move {
+    0% {
+        transform: translate(var(--ball-X-left), var(--ball-Y-top));
+    }
+    10% {
+        transform: translate(var(--ball-X-right), var(--ball-Y-mid));
+    }
+    20% {
+        transform: translate(var(--ball-X-left), var(--ball-Y-bot));
+    }
+    30% {
+        transform: translate(var(--ball-X-right), var(--ball-Y-bot));
+    }
+    40% {
+        transform: translate(var(--ball-X-left), var(--ball-Y-mid));
+    }
+    50% {
+        transform: translate(var(--ball-X-right), var(--ball-Y-top));
+    }
+    60% {
+        transform: translate(var(--ball-X-left), var(--ball-Y-top));
+    }
+    70% {
+        transform: translate(var(--ball-X-right), var(--ball-Y-bot));
+    }
+    80% {
+        transform: translate(var(--ball-X-left), var(--ball-Y-mid));
+    }
+    90% {
+        transform: translate(var(--ball-X-right), var(--ball-Y-top));
+    }
+    100% {
+        transform: translate(var(--ball-X-left), var(--ball-Y-top));
+    }
+}
+
+@keyframes left-player {
+    0% {
+        transform: translateY(var(--player-Y-top));
+    }
+    10% {
+        transform: translateY(var(--player-Y-top));
+    }
+    20% {
+        transform: translateY(var(--player-Y-bot));
+    }
+    30% {
+        transform: translateY(var(--player-Y-bot));
+    }
+    40% {
+        transform: translateY(var(--player-Y-mid));
+    }
+    50% {
+        transform: translateY(var(--player-Y-mid));
+    }
+    60% {
+        transform: translateY(var(--player-Y-top));
+    }
+    70% {
+        transform: translateY(var(--player-Y-top));
+    }
+    80% {
+        transform: translateY(var(--player-Y-mid));
+    }
+    90% {
+        transform: translateY(var(--player-Y-mid));
+    }
+    100% {
+        transform: translateY(var(--player-Y-top));
+    }
+}
+
+@keyframes right-player {
+    0% {
+        transform: translateY(var(--player-Y-top));
+    }
+    10% {
+        transform: translateY(var(--player-Y-mid));
+    }
+    20% {
+        transform: translateY(var(--player-Y-mid));
+    }
+    30% {
+        transform: translateY(var(--player-Y-bot));
+    }
+    40% {
+        transform: translateY(var(--player-Y-bot));
+    }
+    50% {
+        transform: translateY(var(--player-Y-top));
+    }
+    60% {
+        transform: translateY(var(--player-Y-top));
+    }
+    70% {
+        transform: translateY(var(--player-Y-bot));
+    }
+    80% {
+        transform: translateY(var(--player-Y-bot));
+    }
+    90% {
+        transform: translateY(var(--player-Y-top));
+    }
+    100% {
+        transform: translateY(var(--player-Y-top));
+    }
+}
+
+/* ----------------------------------------------------------------------------------------------------- */
+
+.flex-box-contaner {
+    width: 300px;
+    height: 300px;
+}
+
+.flex-box {
+    width: 100px;
+    height: 100px;
+    background-color: var(--color-two);
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+}
+
+.one {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+
+.two {
+    background-color: rebeccapurple;
+}
