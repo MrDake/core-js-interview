@@ -1,1 +1,0 @@
-// https://developers.google.com/web/fundamentals/performance/rendering?hl=ru
